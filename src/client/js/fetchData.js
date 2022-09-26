@@ -1,4 +1,4 @@
-const fetchData = async (url = '', data = { url: '' }) => {
+const fetchData = async (url = '', data = { postcode: '' }) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
