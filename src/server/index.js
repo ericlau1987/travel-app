@@ -12,6 +12,8 @@ const { getAPIResult } = require('./checkAPI');
 
 const { SERVER_PORT } = process.env;
 
+const username = process.env.username;
+console.log(username)
 
 const app = express();
 // Configure cors to avoid cors-origin issue
@@ -22,15 +24,15 @@ app.use(bodyParser());
 app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('dist/index.html'))
+    res.sendFile('dist/index.html')
+    // res.sendFile(path.resolve('dist/index.html'))
 })
 
 app.post('/check', getAPIResult)
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
 })
 
 
