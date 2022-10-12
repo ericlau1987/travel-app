@@ -13,6 +13,7 @@ const handleSubmit = async (event) => {
 
     if (isValidURL(city)) {
         const data = await fetchData('http://localhost:8081/check', {city: city});
+        // to-do: alert if the city is not located and no result is returned. 
         showResult({data});
         // console.log(data)
 
