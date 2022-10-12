@@ -8,11 +8,13 @@ const handleSubmit = async (event) => {
     // check what text was put into the form field
     let postcode = document.getElementById('postcode').value
 
+    // console.log(postcode)
     console.log("::: Form Submitted :::")
 
     if (isValidURL(postcode)) {
         const data = await fetchData('http://localhost:8080/check', {postcode: postcode});
         showResult({data});
+        // console.log(data)
 
     } else {
         alert("Please provide a valid postcode.")
