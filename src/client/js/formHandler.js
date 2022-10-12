@@ -6,13 +6,13 @@ const handleSubmit = async (event) => {
     event.preventDefault()
 
     // check what text was put into the form field
-    let postcode = document.getElementById('postcode').value
+    let city = document.getElementById('city').value
 
     // console.log(postcode)
     console.log("::: Form Submitted :::")
 
-    if (isValidURL(postcode)) {
-        const data = await fetchData('http://localhost:8081/check', {postcode: postcode});
+    if (isValidURL(city)) {
+        const data = await fetchData('http://localhost:8081/check', {city: city});
         showResult({data});
         // console.log(data)
 
