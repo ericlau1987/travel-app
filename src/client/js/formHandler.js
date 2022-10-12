@@ -12,7 +12,7 @@ const handleSubmit = async (event) => {
     console.log("::: Form Submitted :::")
 
     if (isValidURL(postcode)) {
-        const data = await fetchData('http://localhost:8080/check', {postcode: postcode});
+        const data = await fetchData('http://localhost:8081/check', {postcode: postcode});
         showResult({data});
         // console.log(data)
 

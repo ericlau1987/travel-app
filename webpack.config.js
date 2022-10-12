@@ -15,6 +15,12 @@ module.exports = {
             }
         ]
     },
+    // devServer: {
+    //     setup(app) {
+    //         app.post('*', (req, res) => {
+    //             res.redirect(req.originalUrl);
+    //         });
+    //     },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",

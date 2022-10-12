@@ -19,7 +19,8 @@ const app = express();
 // Configure cors to avoid cors-origin issue
 app.use(cors());
 // Configure express to use body-parser as middle-ware.
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // Configure express static directory.
 app.use(express.static('dist'))
 
@@ -31,8 +32,8 @@ app.get('/', function (req, res) {
 app.post('/check', getAPIResult)
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
 })
 
 
