@@ -1,6 +1,7 @@
 const { isValidURL } = require('./checkValidURL')
 const { fetchData } = require('./fetchData')
 const { showResult } = require('./updateResult')
+const { dateDiff } = require('./countDown')
 
 const handleSubmit = async (event) => {
     event.preventDefault()
@@ -25,11 +26,11 @@ const handleSubmit = async (event) => {
         alert("Please provide a valid postcode.")
     }
 
-    // const date_diff = (startDate, endDate) => {
-    const diff_in_time = endDate - startDate;
-    const diff_in_days = Math.round(diff_in_time /(1000*3600*24));
-    // console.log(diff_in_time)
-    // };
+    // const diff_in_time = endDate - startDate;
+    // const diff_in_days = Math.round(diff_in_time /(1000*3600*24));
+
+    const diff_in_days = dateDiff(startDate, endDate)
+
 
     document.getElementById("dateDiff").innerHTML = `count down: ${diff_in_days} days`;
 }
