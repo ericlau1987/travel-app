@@ -7,6 +7,10 @@ const handleSubmit = async (event) => {
 
     // check what text was put into the form field
     let city = document.getElementById('city').value
+    let endDate = new Date(document.getElementById('flight-date').value)
+    let startDate = new Date()
+
+    console.log(endDate)
 
     // console.log(postcode)
     console.log("::: Form Submitted :::")
@@ -20,6 +24,14 @@ const handleSubmit = async (event) => {
     } else {
         alert("Please provide a valid postcode.")
     }
+
+    // const date_diff = (startDate, endDate) => {
+    const diff_in_time = endDate - startDate;
+    const diff_in_days = Math.round(diff_in_time /(1000*3600*24));
+    // console.log(diff_in_time)
+    // };
+
+    document.getElementById("dateDiff").innerHTML = `count down: ${diff_in_days} days`;
 }
 
 export { handleSubmit }
