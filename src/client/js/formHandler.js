@@ -21,7 +21,7 @@ const handleSubmit = async (event) => {
     // to-do: alert if the city is not located and no result is returned. 
     // showResult({data});
 
-    console.log(locationData)
+    // console.log(locationData)
 
     const diff_in_days = dateDiff(startDate, endDate)
     
@@ -33,7 +33,7 @@ const handleSubmit = async (event) => {
 
     const latest_weather_forecast = weatherForecastData.data[Math.min(diff_in_days,15)]
     
-    console.log(latest_weather_forecast)
+    // console.log(latest_weather_forecast)
 
     showResult({locationData}, diff_in_days, latest_weather_forecast)
 
