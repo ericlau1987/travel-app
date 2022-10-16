@@ -1,5 +1,6 @@
 const { isValidURL } = require('./checkValidURL')
 const { fetchData } = require('./fetchData')
+const { fetchWeatherData } = require('./fetchWeatherData')
 const { showResult } = require('./updateResult')
 const { dateDiff } = require('./countDown')
 
@@ -16,23 +17,24 @@ const handleSubmit = async (event) => {
     // console.log(postcode)
     console.log("::: Form Submitted :::")
 
-    if (isValidURL(city)) {
-        const data = await fetchData('http://localhost:8081/check', {city: city});
-        // to-do: alert if the city is not located and no result is returned. 
-        showResult({data});
-        // console.log(data)
-
-    } else {
-        alert("Please provide a valid postcode.")
-    }
-
-    // const diff_in_time = endDate - startDate;
-    // const diff_in_days = Math.round(diff_in_time /(1000*3600*24));
+    const locationData = await fetchData('http://localhost:8081/check', {city: city});
+    // to-do: alert if the city is not located and no result is returned. 
+    // showResult({data});
 
     const diff_in_days = dateDiff(startDate, endDate)
+    
 
+    const lat = locationData.postalCodes[0].lat
 
-    document.getElementById("dateDiff").innerHTML = `count down: ${diff_in_days} days`;
+    const lon = locationData.postalCodes[0].lng
+    const weatherForecastData = await fetchWeatherData('http://localhost:8081/check/weather', {lat: lat, lon: lon})
+
+    const latest_weather_forecast = weatherForecastData.data[Math.min(diff_in_days,15)]
+    
+    console.log(latest_weather_forecast)
+
+    showResult({locationData}, diff_in_days, latest_weather_forecast)
+
 }
 
 export { handleSubmit }
