@@ -21,6 +21,8 @@ const handleSubmit = async (event) => {
     // to-do: alert if the city is not located and no result is returned. 
     // showResult({data});
 
+    console.log(locationData)
+
     const diff_in_days = dateDiff(startDate, endDate)
     
 
