@@ -5,5 +5,5 @@ window.addEventListener('DOMContentLoaded', () => {
     submitButton.addEventListener('click', handleSubmit);
   })
 
-alert("I EXIST")
+// alert("I EXIST")
 console.log("CHANGE!!");

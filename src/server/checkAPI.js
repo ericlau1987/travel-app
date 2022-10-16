@@ -1,11 +1,11 @@
 const { default: axios } = require("axios");
 
-const application_key = process.env.API_KEY;
+const username = process.env.username;
 
   const getAPIResult = async (req, res) => {
-    const url= req.body.url;
-    console.log(application_key);
-    const apiUrl = `https://api.meaningcloud.com/sentiment-2.1?key=${application_key}&url=${url}&lang=en`
+    const city= req.body.city;
+    console.log(username);
+    const apiUrl = ` http://api.geonames.org/postalCodeSearchJSON?username=${username}&placename=${city}&&maxRows=1`
     console.log(apiUrl);
     try {
         const response = await axios.post(apiUrl);;

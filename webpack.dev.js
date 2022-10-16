@@ -17,10 +17,14 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        host: "localhost",
+        port: "8080"
+    },  
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
-            filename: "./index.html",
+            template: "src/client/views/index.html",
+            filename: "index.html",
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
