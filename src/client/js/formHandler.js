@@ -12,7 +12,7 @@ const handleSubmit = async (event) => {
     let endDate = new Date(document.getElementById('flight-date').value)
     let startDate = new Date()
 
-    console.log(endDate)
+    // console.log(endDate)
 
     // console.log(postcode)
     console.log("::: Form Submitted :::")

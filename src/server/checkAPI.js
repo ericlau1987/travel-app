@@ -4,9 +4,9 @@ const username = process.env.username;
 
   const getAPIResult = async (req, res) => {
     const city= req.body.city;
-    console.log(username);
+    // console.log(username);
     const apiUrl = ` http://api.geonames.org/postalCodeSearchJSON?username=${username}&placename=${city}&&maxRows=1`
-    console.log(apiUrl);
+    // console.log(apiUrl);
     try {
         const response = await axios.post(apiUrl);;
         const result = response.data;
