@@ -14,7 +14,7 @@ const { getWeatherAPIResult } = require('./checkWeatherAPI');
 const { SERVER_PORT } = process.env;
 
 const username = process.env.username;
-console.log(username)
+// console.log(username)
 
 const app = express();
 // Configure cors to avoid cors-origin issue

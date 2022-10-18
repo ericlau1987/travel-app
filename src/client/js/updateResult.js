@@ -1,4 +1,4 @@
-const showResult = ({locationData}, diff_in_days, latest_weather_forecast) => {
+const showResult = ({locationData}, diff_in_days, latest_weather_forecast, travel_diff_in_days) => {
     // document.getElementById("longitude").innerHTML = `longitude: ${locationData.postalCodes[0].lng}`;
     // document.getElementById("latitude").innerHTML = `latitude: ${locationData.postalCodes[0].placeName}`;
     // document.getElementById("countrycode").innerHTML = `countrycode: ${locationData.postalCodes[0].countryCode}`;
@@ -12,8 +12,9 @@ const showResult = ({locationData}, diff_in_days, latest_weather_forecast) => {
     const highTemp = latest_weather_forecast.app_max_temp
     const lowTemp = latest_weather_forecast.app_min_temp
     const weatherDesc = latest_weather_forecast.weather.description
+    const travel_duration = travel_diff_in_days
 
-    document.getElementById("location").innerHTML = `${city}, ${country} is ${daysCountDown} days away`
+    document.getElementById("location").innerHTML = `${city}, ${country} is ${daysCountDown} days away<br> You will stay there for ${travel_diff_in_days} days`
     document.getElementById("weather").innerHTML = `Typical weather for then is : <br> High - ${highTemp}, Low = ${lowTemp}<br> ${weatherDesc}`
 
 }

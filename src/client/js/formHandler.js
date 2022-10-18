@@ -10,6 +10,7 @@ const handleSubmit = async (event) => {
     // check what text was put into the form field
     let city = document.getElementById('city').value
     let endDate = new Date(document.getElementById('flight-date').value)
+    let endTravleDate = new Date(document.getElementById('flight-end-date').value)
     let startDate = new Date()
 
     // console.log(endDate)
@@ -24,18 +25,20 @@ const handleSubmit = async (event) => {
     // console.log(locationData)
 
     const diff_in_days = dateDiff(startDate, endDate)
+    const travel_diff_in_days = dateDiff(endDate, endTravleDate)
     
 
     const lat = locationData.postalCodes[0].lat
 
     const lon = locationData.postalCodes[0].lng
+    // console.log(lon)
     const weatherForecastData = await fetchWeatherData('http://localhost:8081/check/weather', {lat: lat, lon: lon})
 
     const latest_weather_forecast = weatherForecastData.data[Math.min(diff_in_days,15)]
     
     // console.log(latest_weather_forecast)
 
-    showResult({locationData}, diff_in_days, latest_weather_forecast)
+    showResult({locationData}, diff_in_days, latest_weather_forecast, travel_diff_in_days)
 
 }
 

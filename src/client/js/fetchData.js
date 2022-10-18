@@ -13,7 +13,7 @@ const fetchData = async (url = '', data = { postcode: '' }) => {
     const newData = await response.json();
     return newData;
   } catch (error) {
-    alert('Sorry, something went wrong!');
+    // alert('Sorry, something went wrong!');
     return error;
   }
 };
