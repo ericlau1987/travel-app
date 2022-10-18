@@ -5,7 +5,7 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(120px, 240px);
     /* grid-template-columns:  */
     height:100vh;
     background: #f23558d3;
@@ -18,14 +18,18 @@ body{
 
 .holder{
     // background: rgba(59, 74, 107, .4);
+    // width: 200px;
+    // height: 100px;
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    // background: rgba(59, 74, 107, .4);
 }
 
 #entryHolder{
     background: rgba(59, 74, 107, .4);
+    height: 150px;
+    width: 320px;
 }
 
 #date{
