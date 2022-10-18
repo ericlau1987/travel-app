@@ -35,8 +35,16 @@ app.post('/check', getAPIResult)
 app.post('/check/weather', getWeatherAPIResult)
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
+
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(8081, function () {
+        console.log('Example app listening on port 8081!')
+    });
+}
 
 
+function getApiUsername() {
+    return process.env.username
+}
+
+module.exports = { getApiUsername }
