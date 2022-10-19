@@ -4,11 +4,49 @@ body{
 }
 
 #app{
+    @media screen and (max-width:375px) {
+        display: grid;
+        grid-auto-rows: 165px;
+        /* grid-template-columns:  */
+        height:100vh;
+        background: #4e35f2d3;
+        color: #f0d43a;
+        justify-content: center;
+        grid-gap: 0.05em;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+    }
+    @media screen and (min-width:375px) and (max-width:389) {
+        /* for screens that are at least 320 pixels wide but less than or equal to 640 pixels wide */
+        display: grid;
+        grid-auto-rows:  100px;
+        /* grid-template-columns:  */
+        height:115vh;
+        background: #4e35f2d3;
+        color: #f0d43a;
+        justify-content: center;
+        grid-gap: 0.1em;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+    }
+    @media screen and (min-width:390px) and (max-width:640px) {
+        /* for screens that are at least 320 pixels wide but less than or equal to 640 pixels wide */
+        display: grid;
+        grid-auto-rows: 200px;
+        /* grid-template-columns:  */
+        height:100vh;
+        background: #4e35f2d3;
+        color: #f0d43a;
+        justify-content: center;
+        grid-gap: 0.1em;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+    }
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(120px, 240px);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23558d3;
+    background: #4e35f2d3;
     color: #f0d43a;
     justify-content: center;
     grid-gap: 0.1em;
@@ -18,14 +56,28 @@ body{
 
 .holder{
     // background: rgba(59, 74, 107, .4);
+    // width: 200px;
+    // height: 100px;
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    // background: rgba(59, 74, 107, .4);
 }
 
 #entryHolder{
+    @media screen and (min-width:320px) and (max-width:375px) {
+        background: rgba(59, 74, 107, .4);
+        height: 130px;
+        width: 320px;
+    }
+    @media screen and (min-width:376px) and (max-width:640px) {
+        background: rgba(59, 74, 107, .4);
+        height: 220px;
+        width: 320px;
+    }
     background: rgba(59, 74, 107, .4);
+    height: 220px;
+    width: 320px;
 }
 
 #date{
@@ -41,10 +93,10 @@ body{
 }
 
 .headline {
-    font-size: 100px;
+    font-size: 80px;
 }
 .title{
-
+    
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -55,7 +107,7 @@ label{
 
 input{
     display:block;
-    height: 60px;
+    height: 40px;
     width: 320px;
     background:#22b2da;
     color: #f0d43a;
@@ -63,16 +115,22 @@ input{
     font-family: 'Oswald', sans-serif;
     border: none;
 }
+input:hover{
+    background:#41bcde;
+}
 
 #submitButton{
-    width: 200px;
-    height: 50px;
-    background: #3b4a6b;
+    width: 100px;
+    height: 40px;
+    background: #2775e9;
     color: #f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+}
+#submitButton:hover{
+    background: #3b4a6b;
 }
 h1{
     font-size: 36px;

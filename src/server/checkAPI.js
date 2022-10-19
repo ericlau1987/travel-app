@@ -10,7 +10,7 @@ const username = process.env.username;
     try {
         const response = await axios.post(apiUrl);;
         const result = response.data;
-        console.log(apiUrl);
+        // console.log(apiUrl);
         res.send(result);
     } catch(error) {
         console.log('error', error);
