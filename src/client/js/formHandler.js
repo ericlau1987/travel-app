@@ -32,11 +32,11 @@ const handleSubmit = async (event) => {
     const lat = locationData.postalCodes[0].lat
     const lon = locationData.postalCodes[0].lng
     const lang = locationData.postalCodes[0].countryCode
-    console.log(locationData)
+    // console.log(locationData)
     const weatherForecastData = await fetchWeatherData('http://localhost:8081/check/weather', {lat: lat, lon: lon})
     const cityWeatherImgUrl = await fetchCityWeatherImg('http://localhost:8081/check/cityimg', {city: city, lang: lang})
 
-    console.log(weatherForecastData)
+    // console.log(weatherForecastData)
 
     const latest_weather_forecast = weatherForecastData.data[Math.min(diff_in_days,15)]
     
