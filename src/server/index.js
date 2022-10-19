@@ -10,6 +10,7 @@ const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const { getAPIResult } = require('./checkAPI');
 const { getWeatherAPIResult } = require('./checkWeatherAPI');
+const { getCityImgAPIResult } = require('./checkImgAPI');
 
 const { SERVER_PORT } = process.env;
 
@@ -33,6 +34,8 @@ app.get('/', function (req, res) {
 app.post('/check', getAPIResult)
 
 app.post('/check/weather', getWeatherAPIResult)
+
+app.post('/check/cityimg', getCityImgAPIResult)
 
 // designates what port the app will listen to for incoming requests
 

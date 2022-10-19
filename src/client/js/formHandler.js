@@ -3,6 +3,7 @@ const { fetchData } = require('./fetchData')
 const { fetchWeatherData } = require('./fetchWeatherData')
 const { showResult } = require('./updateResult')
 const { dateDiff } = require('./countDown')
+const { fetchCityWeatherImg } = require('./fetchCityWeatherImg')
 
 const handleSubmit = async (event) => {
     event.preventDefault()
@@ -29,16 +30,19 @@ const handleSubmit = async (event) => {
     
 
     const lat = locationData.postalCodes[0].lat
-
     const lon = locationData.postalCodes[0].lng
-    // console.log(lon)
+    const lang = locationData.postalCodes[0].countryCode
+    // console.log(locationData)
     const weatherForecastData = await fetchWeatherData('http://localhost:8081/check/weather', {lat: lat, lon: lon})
+    const cityWeatherImgUrl = await fetchCityWeatherImg('http://localhost:8081/check/cityimg', {city: city, lang: lang})
+
+    // console.log(weatherForecastData)
 
     const latest_weather_forecast = weatherForecastData.data[Math.min(diff_in_days,15)]
     
     // console.log(latest_weather_forecast)
 
-    showResult({locationData}, diff_in_days, latest_weather_forecast, travel_diff_in_days)
+    showResult({locationData}, diff_in_days, latest_weather_forecast, travel_diff_in_days, cityWeatherImgUrl)
 
 }
 
